@@ -38,7 +38,7 @@ class HomePageTemp extends StatelessWidget {
            ListTile(
              title: Text(item + '!'),
              subtitle: Text('Esto es un subtitulo'),
-             leading: Icon(Icons.face),
+             leading: Icon(Icons.card_travel),
              trailing: Icon(Icons.arrow_back),
              onTap:(){
                opciones[0] = 'jorge';
