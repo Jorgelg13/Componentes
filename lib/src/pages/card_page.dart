@@ -15,13 +15,28 @@ class CardPage extends StatelessWidget {
       ),
       body: ListView(
         padding: EdgeInsets.all(10.0),
-        children: <Widget>[_cardTipo1()],
+        children: <Widget>[
+          _cardTipo1(),
+          SizedBox(height: 20.0,),
+          _cardTipo2(),
+          SizedBox(height: 20.0,),
+          _cardTipo1(),
+          SizedBox(height: 20.0,),
+          _cardTipo2(),
+          SizedBox(height: 20.0,),
+          _cardTipo1(),
+          SizedBox(height: 20.0,),
+          _cardTipo2(),
+          SizedBox(height: 20.0,),          
+        ],
       ),
     );
   }
 
   Widget _cardTipo1() {
     return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Column(
         children: <Widget>[
           ListTile(
@@ -39,13 +54,52 @@ class CardPage extends StatelessWidget {
               ),
               FlatButton(
                 child: Text('Ok'),
-                onPressed: (){
-
-                },
+                onPressed: () {},
               )
             ],
           )
         ],
+      ),
+    );
+  }
+
+  //aqui vamos hacer una tarjeta que tenga una imagen
+  Widget _cardTipo2() {
+    final card = Container(
+      child: Column(
+        children: <Widget>[
+          FadeInImage(
+            image: NetworkImage(
+                'https://pixelz.cc/wp-content/uploads/2016/11/quarten-switzerland-landscape-4k-wallpaper.jpg'),
+            placeholder: AssetImage('assets/cargando.gif'),
+            height: 250,
+            fit: BoxFit.cover,
+          ),
+          //Image(image: NetworkImage('https://pixelz.cc/wp-content/uploads/2016/11/quarten-switzerland-landscape-4k-wallpaper.jpg'),
+          //),
+          Container(
+              padding: EdgeInsets.all(10.0),
+              child: Text('Nombre de la imagen colocada'))
+        ],
+      ),
+    );
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30.0),
+        color: Colors.white,
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 10.0,
+            spreadRadius: 1.5,
+            offset: Offset(2.0,8.0)
+            )
+        ]
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30.0),
+        child: card,
       ),
     );
   }
